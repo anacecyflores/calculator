@@ -5,6 +5,31 @@ class Calculator {
   }
 }
 
+clear () {
+
+}
+
+delete (){
+
+}
+
+apprendNumber(number){
+
+}
+
+chooseOperation(operation) {
+
+}
+
+compute () {
+
+}
+
+updateDisplay (){
+
+}
+
+
 const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operation]");
 const equalsButtons = document.querySelector("[data-equals]");
