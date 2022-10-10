@@ -19,7 +19,11 @@ class Calculator {
   }
 
   chooseOperation(operation) {
-    if (this.currentOperand) this.operation = operation;
+    if (this.currentOperand) return;
+    if (this.previousOperand !== " ") {
+      this.compute();
+    }
+    this.operation = operation;
     this.previousOperand = this.currentOperand;
     this.currentOperand = "";
   }
@@ -53,6 +57,13 @@ const calculator = new Calculator(
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
     calculator.apprendNumber(button.innerText);
+    calculator.updateDisplay();
+  });
+});
+
+operationButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    calculator.chooseOperation(button.innerText);
     calculator.updateDisplay();
   });
 });
