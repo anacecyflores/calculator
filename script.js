@@ -59,23 +59,32 @@ class Calculator {
   }
 
   getDisplayNumber(number) {
-    const floatNumber = parseFloat(number);
-    if (isNaN(floatNumber)) return "";
-    return floatnumber.toLocaleString("en");
+    const stringNumber = number.toString();
+    const integerDigits = parseFloat(stringNumber.split(",")[0]);
+    const decimalDigits = stringNumber.split(",")[1];
+    let integerDisplay 
+    if (isNan(integerDigits)) {
+        integerDisplay =''
+    }else {
+        integerDisplay = integerDigits.toLocaleString('en', {
+            maximumFractionDigits:0
+        })
+        if {}
+    }
+    }
+    // const floatNumber = parseFloat(number);
+    // // if (isNaN(floatNumber)) return "";
+    // return floatnumber.toLocaleString("en");
   }
 
-  updateDisplay() {
+  updateDisplay(){
     this.currentOperandTextElement.innerText = this.getDisplayNumber(
-      this.currentOperand
-    );
+      this.currentOperand)
     if (this.operation != null) {
-      this.previousOperandTextElement.innerText = `${this.getDisplayNumber(
-        previousOperand
-      )} ${this.operation}`;
+      this.previousOperandTextElement.innerText = 
+      `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
     }
   }
-}
-
 const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operation]");
 const equalsButtons = document.querySelector("[data-equals]");
